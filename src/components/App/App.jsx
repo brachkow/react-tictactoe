@@ -82,7 +82,8 @@ export default class App extends React.Component {
               key={id}
               id={id}
               value={item}
-              isGameOver={this.state.win.status}
+              isGameOver={win.status}
+              wonRoute={win.route}
               isOnWonRoute={isOnWonRoute}
               onClick={() => {
                 this.handleClick(id);

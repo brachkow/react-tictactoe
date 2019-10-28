@@ -49,17 +49,34 @@ const Cell = styled.button`
         background-color: ${color.green};
         animation-name: ${Bump};
         animation-duration: 300ms;
-        & ~ & {
-          animation-delay: 300ms;
-          & ~ & {
-            animation-delay: 600ms;
-          }
-        }
       `;
     } else {
       cssFragment = css`
         background-color: ${color.gray.initial};
       `;
+    }
+    return cssFragment;
+  }};
+  ${props => {
+    let cssFragment;
+    if (props.wonRoute !== undefined) {
+      if (props.id === props.wonRoute[0]) {
+        cssFragment = css`
+          animation-delay: 0ms;
+        `;
+      }
+
+      if (props.id === props.wonRoute[1]) {
+        cssFragment = css`
+          animation-delay: 300ms;
+        `;
+      }
+
+      if (props.id === props.wonRoute[2]) {
+        cssFragment = css`
+          animation-delay: 600ms;
+        `;
+      }
     }
     return cssFragment;
   }};

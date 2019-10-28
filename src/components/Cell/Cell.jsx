@@ -49,6 +49,7 @@ const Cell = styled.button`
         background-color: ${color.green};
         animation-name: ${Bump};
         animation-duration: 300ms;
+        transition-duration: 300ms;
       `;
     } else {
       cssFragment = css`
@@ -68,12 +69,14 @@ const Cell = styled.button`
 
       if (props.id === props.wonRoute[1]) {
         cssFragment = css`
+          transition-delay: 300ms;
           animation-delay: 300ms;
         `;
       }
 
       if (props.id === props.wonRoute[2]) {
         cssFragment = css`
+          transition-delay: 600ms;
           animation-delay: 600ms;
         `;
       }

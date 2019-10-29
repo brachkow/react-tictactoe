@@ -1,4 +1,5 @@
-# Tic Tac Toe
+# React Tic Tac Toe
+![Gif with actual gameplay](gameplay.gif)
 
 Dead-simple Tic Tac Toe game made using React and Styled Components.
 

@@ -88,7 +88,8 @@ const Cell = styled.button`
     display: block;
     padding-bottom: 100%;
   }
-  &:hover {
+  &:hover,
+  &:focus {
     ${props => {
       let cssFragment;
       if (!props.isGameOver && props.value === '') {

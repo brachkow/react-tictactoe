@@ -123,7 +123,22 @@ const Cell = styled.button`
       return cssFragment;
     }};
   }
-  transition-property: background-color;
+  &:focus {
+    ${props => {
+      let cssFragment;
+      if (props.turn === 'x') {
+        cssFragment = css`
+          outline-color: ${color.red};
+        `;
+      } else if (props.turn === 'o') {
+        cssFragment = css`
+          outline-color: ${color.blue};
+        `;
+      }
+      return cssFragment;
+    }};
+  }
+  transition-property: background-color, border-color;
   transition-duration: 300ms;
 `;
 

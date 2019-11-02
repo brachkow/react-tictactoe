@@ -65,7 +65,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    const { win } = this.state;
+    const { win, turn } = this.state;
     return (
       <Playground>
         {this.state.grid.map((item, id) => {
@@ -82,6 +82,7 @@ export default class App extends React.Component {
               key={id}
               id={id}
               value={item}
+              turn={turn}
               isGameOver={win.status}
               wonRoute={win.route}
               isOnWonRoute={isOnWonRoute}

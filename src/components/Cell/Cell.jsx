@@ -15,7 +15,19 @@ const Bump = keyframes`
 
 const Cell = styled.button`
   display: block;
-  cursor: pointer;
+  ${props => {
+    let cssFragment;
+    if (props.value === '') {
+      cssFragment = css`
+        cursor: pointer;
+      `;
+    } else {
+      cssFragment = css`
+        cursor: not-allowed;
+      `;
+    }
+    return cssFragment;
+  }};
   border: none;
   padding: 0;
   margin: 8px;

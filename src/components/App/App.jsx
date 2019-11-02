@@ -64,6 +64,27 @@ export default class App extends React.Component {
     });
   }
 
+  componentDidUpdate() {
+    const { win, turn } = this.state;
+    const favicon = document.querySelector('link[rel*=icon]');
+    const title = document.querySelector('title');
+    if (win.status) {
+      if (win.player === 'x') {
+        favicon.setAttribute('href', 'favicon-cross.png');
+        title.innerText = 'X won! (Reload page to restart)';
+      } else if (win.player === 'o') {
+        favicon.setAttribute('href', 'favicon-circle.png');
+        title.innerText = 'O won! (Reload page to restart)';
+      }
+    } else if (turn === 'x') {
+      favicon.setAttribute('href', 'favicon-cross.png');
+      title.innerText = 'It is X turn';
+    } else if (turn === 'o') {
+      favicon.setAttribute('href', 'favicon-circle.png');
+      title.innerText = 'It is O turn';
+    }
+  }
+
   render() {
     const { win, turn } = this.state;
     return (

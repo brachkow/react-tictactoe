@@ -1,4 +1,6 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+let HtmlWebpackPlugin = require('html-webpack-plugin');
+let CopyWebpackPlugin = require('copy-webpack-plugin');
+let { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
@@ -13,10 +15,23 @@ module.exports = {
     publicPath: '/public/',
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html',
     }),
+    new CopyWebpackPlugin([
+      {
+        from: './src/favicon-cross.png',
+        to: './favicon-cross.png',
+      },
+    ]),
+    new CopyWebpackPlugin([
+      {
+        from: './src/favicon-circle.png',
+        to: './favicon-circle.png',
+      },
+    ]),
   ],
   module: {
     rules: [
